@@ -7,15 +7,27 @@ function createPDF(numPages){
   let pdfDoc = new PDFDocument({size: 'A5'});
 
   pdfDoc.pipe(fs.createWriteStream('SampleDocument.pdf'));
+  pdfDoc.font('Helvetica')
+  pdfDoc.fontSize(8);
+
 
   for (let i = 0; i < numPages; i++) {
-    pdfDoc.text('Learning from living in large-scale image datasets')
-    pdfDoc.moveDown(0.5)
-    pdfDoc.text('Read the full article on Photographies')
-    pdfDoc.moveDown(0.5)
-    pdfDoc.text((i+1) + " out of " + numPages)
-    pdfDoc.moveDown(0.5)
+
     pdfDoc.image('tinyIMG/tinyImg_' + Math.floor(Math.random() * 100200) + '.JPEG', {width: 300, height: 300});
+
+
+    pdfDoc.moveDown(12)
+    pdfDoc.text('Images to live with.', {align: 'right'})
+    pdfDoc.moveDown(0.5)
+    pdfDoc.text('Read the article on Photographies Journal.', {
+     link: 'http://ADDLINK',
+     underline: true,
+     align: 'right'
+    })
+    pdfDoc.moveDown(0.5)
+    pdfDoc.text("Page " + (i+1) + " of " + numPages, {align: 'right'})
+
+
     if ((numPages-i) == 1){
 
     } else {
