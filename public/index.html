@@ -31,10 +31,10 @@
     <p> This is a tool to create PDFs with data set images for printing.</p>
 
 
-    <p> To generate a PDF with images to live with, fill the form below with the number of images you want and press OK. </p>
+    <p> To generate a PDF with images to live with, fill the form below with the number of images you want (max 30) and press OK. </p>
 
     <form action="/generate/" method="post">
-        <input id="generateID" type="number" name="generateNumber" value="Default is 1.">
+        <input id="generateID" type="number" max="30" name="generateNumber" value="Default is 1.">
         <input type="submit" value="OK">
     </form>
 
