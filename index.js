@@ -13,7 +13,7 @@ function createPDF(numPages){
 
   for (let i = 0; i < numPages; i++) {
 
-    pdfDoc.image('tinyIMG/tinyImg_' + Math.floor(Math.random() * 100200) + '.JPEG', {width: 300, height: 300});
+    pdfDoc.image('tinyIMG/tiny_' + Math.floor(Math.random() * 100000) + '.JPEG', {width: 300, height: 300});
 
     pdfDoc.moveDown(12)
     pdfDoc.text('Images to live with.', {align: 'right'})
