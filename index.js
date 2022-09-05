@@ -15,7 +15,7 @@ function createPDF(numPages){
     pdfDoc.moveDown(0.5)
     pdfDoc.text((i+1) + " out of " + numPages)
     pdfDoc.moveDown(0.5)
-    pdfDoc.image('images/n02002724_' + Math.floor(Math.random() * 399) + '.JPEG', {width: 300, height: 300});
+    pdfDoc.image('tinyIMG/tinyImg_' + Math.floor(Math.random() * 100200) + '.JPEG', {width: 300, height: 300});
     if ((numPages-i) == 1){
 
     } else {
