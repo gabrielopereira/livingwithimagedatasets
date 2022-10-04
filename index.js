@@ -6,7 +6,9 @@ var numPages = 0;
 function createPDF(numPages){
   let pdfDoc = new PDFDocument({size: 'A5'});
 
-  pdfDoc.pipe(fs.createWriteStream('SampleDocument.pdf'));
+  writeStream = fs.createWriteStream('SampleDocument.pdf');
+  pdfDoc.pipe(writeStream);
+
   pdfDoc.font('Helvetica')
   pdfDoc.fontSize(8);
 
@@ -116,6 +118,10 @@ function createPDF(numPages){
   }
 
   pdfDoc.end();
+
+  writeStream.on('finish', function () {
+    // do stuff with the PDF file
+  });
 
 }
 
