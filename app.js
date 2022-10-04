@@ -24,8 +24,8 @@ app.post('/generate', function(req, res, next) {
     console.log(req.body.generateNumber);
     let result = await getPDF.createPDF(req.body.generateNumber);
 
-    var filename = "SampleDocument.pdf";
-    var stream = fs.createReadStream(filename);
+    var filename = "ImagesToLiveWith.pdf";
+    var stream = await fs.createReadStream(filename);
     // Be careful of special characters
     filename = encodeURIComponent(filename);
     // Ideally this should strip them
