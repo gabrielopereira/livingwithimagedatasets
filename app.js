@@ -24,16 +24,17 @@ app.post('/generate', function(req, res, next) {
     console.log(req.body.generateNumber);
     let result = await getPDF.createPDF(req.body.generateNumber);
 
-    var filename = "ImagesToLiveWith.pdf";
-    var stream = await fs.createReadStream(filename);
+    var filename = "SampleDocument.pdf";
     // Be careful of special characters
     filename = encodeURIComponent(filename);
     // Ideally this should strip them
+    var stream = await fs.createReadStream(filename);
+
 
     res.setHeader('Content-disposition', 'attachment; filename="' + filename + '"');
     res.setHeader('Content-type', 'application/pdf');
 
-    stream.on('open', function () {
+    await stream.on('open', function () {
        // This just pipes the read stream to the response object (which goes to the client)
        stream.pipe(res);
      });
