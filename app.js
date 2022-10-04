@@ -30,7 +30,7 @@ app.post('/generate', function(req, res, next) {
     filename = encodeURIComponent(filename);
     // Ideally this should strip them
 
-    res.setHeader('Content-disposition', 'inline; filename="' + filename + '"');
+    res.setHeader('Content-disposition', 'attachment; filename="' + filename + '"');
     res.setHeader('Content-type', 'application/pdf');
 
     stream.on('open', function () {
