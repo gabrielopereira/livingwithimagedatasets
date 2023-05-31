@@ -111,7 +111,7 @@ function createPDF(numPages, res){
 
     pdfDoc.moveDown(0.4)
     pdfDoc.text('Read the article on Photographies Journal.', {
-     link: 'http://ADDLINK',
+     link: 'https://doi.org/10.1080/17540763.2023.2189285',
      underline: true,
      align: 'right'
     })
